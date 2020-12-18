@@ -24,8 +24,7 @@ public class EchoClient {
         this.port = port;
     }
 
-    public void start()
-        throws Exception {
+    public void start() throws Exception {
         EventLoopGroup group = new NioEventLoopGroup();
         try {
             //创建 Bootstrap
@@ -39,10 +38,8 @@ public class EchoClient {
                 //在创建Channel时，向 ChannelPipeline中添加一个 EchoClientHandler实例
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
-                    public void initChannel(SocketChannel ch)
-                        throws Exception {
-                        ch.pipeline().addLast(
-                             new EchoClientHandler());
+                    public void initChannel(SocketChannel ch) throws Exception {
+                        ch.pipeline().addLast(new EchoClientHandler());
                     }
                 });
             //连接到远程节点，阻塞等待直到连接完成
@@ -55,18 +52,8 @@ public class EchoClient {
         }
     }
 
-    public static void main(String[] args)
-            throws Exception {
-        if (args.length != 2) {
-            System.err.println("Usage: " + EchoClient.class.getSimpleName() +
-                    " <host> <port>"
-            );
-            return;
-        }
-
-        final String host = args[0];
-        final int port = Integer.parseInt(args[1]);
-        new EchoClient(host, port).start();
+    public static void main(String[] args) throws Exception {
+        new EchoClient("localhost", 8888).start();
     }
 }
 
