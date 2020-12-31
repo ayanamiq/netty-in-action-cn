@@ -50,8 +50,7 @@ public class ChannelOperationExamples {
     public static void writingToChannelFromManyThreads() {
         final Channel channel = CHANNEL_FROM_SOMEWHERE; // Get the channel reference from somewhere
         //创建持有要写数据的ByteBuf
-        final ByteBuf buf = Unpooled.copiedBuffer("your data",
-                CharsetUtil.UTF_8);
+        final ByteBuf buf = Unpooled.copiedBuffer("your data", CharsetUtil.UTF_8);
         //创建将数据写到Channel 的 Runnable
         Runnable writer = new Runnable() {
             @Override

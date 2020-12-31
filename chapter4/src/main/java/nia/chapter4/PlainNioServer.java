@@ -17,7 +17,7 @@ import java.util.Set;
  * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class PlainNioServer {
-    public void serve(int port) throws IOException {
+    public void server(int port) throws IOException {
         ServerSocketChannel serverChannel = ServerSocketChannel.open();
         serverChannel.configureBlocking(false);
         ServerSocket ss = serverChannel.socket();
@@ -47,22 +47,17 @@ public class PlainNioServer {
                 try {
                     //检查事件是否是一个新的已经就绪可以被接受的连接
                     if (key.isAcceptable()) {
-                        ServerSocketChannel server =
-                                (ServerSocketChannel) key.channel();
+                        ServerSocketChannel server = (ServerSocketChannel) key.channel();
                         SocketChannel client = server.accept();
                         client.configureBlocking(false);
                         //接受客户端，并将它注册到选择器
-                        client.register(selector, SelectionKey.OP_WRITE |
-                                SelectionKey.OP_READ, msg.duplicate());
-                        System.out.println(
-                                "Accepted connection from " + client);
+                        client.register(selector, SelectionKey.OP_WRITE | SelectionKey.OP_READ, msg.duplicate());
+                        System.out.println("Accepted connection from " + client);
                     }
                     //检查套接字是否已经准备好写数据
                     if (key.isWritable()) {
-                        SocketChannel client =
-                                (SocketChannel) key.channel();
-                        ByteBuffer buffer =
-                                (ByteBuffer) key.attachment();
+                        SocketChannel client = (SocketChannel) key.channel();
+                        ByteBuffer buffer = (ByteBuffer) key.attachment();
                         while (buffer.hasRemaining()) {
                             //将数据写到已连接的客户端
                             if (client.write(buffer) == 0) {
