@@ -11,8 +11,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
  */
 @Sharable
 //扩展了SimpleChannelInboundHandler
-public class SimpleDiscardHandler
-    extends SimpleChannelInboundHandler<Object> {
+public class SimpleDiscardHandler extends SimpleChannelInboundHandler<Object> {
     @Override
     public void channelRead0(ChannelHandlerContext ctx,
         Object msg) {

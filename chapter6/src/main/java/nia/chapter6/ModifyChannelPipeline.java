@@ -35,23 +35,19 @@ public class ModifyChannelPipeline {
         pipeline.replace("handler2", "handler4", new FourthHandler());
     }
 
-    private static final class FirstHandler
-        extends ChannelHandlerAdapter {
+    private static final class FirstHandler extends ChannelHandlerAdapter {
 
     }
 
-    private static final class SecondHandler
-        extends ChannelHandlerAdapter {
+    private static final class SecondHandler extends ChannelHandlerAdapter {
 
     }
 
-    private static final class ThirdHandler
-        extends ChannelHandlerAdapter {
+    private static final class ThirdHandler extends ChannelHandlerAdapter {
 
     }
 
-    private static final class FourthHandler
-        extends ChannelHandlerAdapter {
+    private static final class FourthHandler extends ChannelHandlerAdapter {
 
     }
 }
