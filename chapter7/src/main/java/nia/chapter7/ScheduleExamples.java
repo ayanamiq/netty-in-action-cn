@@ -27,8 +27,7 @@ public class ScheduleExamples {
      * */
     public static void schedule() {
         //创建一个其线程池具有 10 个线程的ScheduledExecutorService
-        ScheduledExecutorService executor =
-                Executors.newScheduledThreadPool(10);
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(10);
 
         ScheduledFuture<?> future = executor.schedule(
             //创建一个 Runnable，以供调度稍后执行
@@ -64,7 +63,8 @@ public class ScheduleExamples {
 
     /**
      * 代码清单 7-4 使用 EventLoop 调度周期性的任务
-     * */
+     *
+     */
     public static void scheduleFixedViaEventLoop() {
         Channel ch = CHANNEL_FROM_SOMEWHERE; // get reference from somewhere
         ScheduledFuture<?> future = ch.eventLoop().scheduleAtFixedRate(
@@ -84,7 +84,6 @@ public class ScheduleExamples {
      * */
     public static void cancelingTaskUsingScheduledFuture(){
         Channel ch = CHANNEL_FROM_SOMEWHERE; // get reference from somewhere
-        //...
         //调度任务，并获得所返回的ScheduledFuture
         ScheduledFuture<?> future = ch.eventLoop().scheduleAtFixedRate(
                 new Runnable() {
@@ -93,7 +92,7 @@ public class ScheduleExamples {
                         System.out.println("Run every 60 seconds");
                     }
                 }, 60, 60, TimeUnit.SECONDS);
-        // Some other code that runs...
+        //运行其他代码
         boolean mayInterruptIfRunning = false;
         //取消该任务，防止它再次运行
         future.cancel(mayInterruptIfRunning);

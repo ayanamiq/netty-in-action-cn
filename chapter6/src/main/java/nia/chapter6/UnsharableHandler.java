@@ -18,8 +18,7 @@ public class UnsharableHandler extends ChannelInboundHandlerAdapter {
         //将 count 字段的值加 1
         count++;
         //记录方法调用，并转发给下一个ChannelHandler
-        System.out.println("inboundBufferUpdated(...) called the "
-                + count + " time");
+        System.out.println("inboundBufferUpdated(...) called the " + count + " time");
         ctx.fireChannelRead(msg);
     }
 }

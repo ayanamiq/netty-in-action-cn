@@ -31,7 +31,6 @@ public class GracefulShutdown {
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(group)
              .channel(NioSocketChannel.class)
-        //...
              .handler(
                 new SimpleChannelInboundHandler<ByteBuf>() {
                     @Override

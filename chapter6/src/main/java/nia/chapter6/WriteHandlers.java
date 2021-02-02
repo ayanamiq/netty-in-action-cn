@@ -30,9 +30,7 @@ public class WriteHandlers {
         //获取到与 ChannelHandlerContext相关联的 Channel 的引用
         Channel channel = ctx.channel();
         //通过 Channel 写入缓冲区
-        channel.write(Unpooled.copiedBuffer("Netty in Action",
-                CharsetUtil.UTF_8));
-
+        channel.write(Unpooled.copiedBuffer("Netty in Action", CharsetUtil.UTF_8));
     }
 
     /**
@@ -43,9 +41,7 @@ public class WriteHandlers {
         //获取到与 ChannelHandlerContext相关联的 ChannelPipeline 的引用
         ChannelPipeline pipeline = ctx.pipeline(); //get reference form somewhere
         //通过 ChannelPipeline写入缓冲区
-        pipeline.write(Unpooled.copiedBuffer("Netty in Action",
-                CharsetUtil.UTF_8));
-
+        pipeline.write(Unpooled.copiedBuffer("Netty in Action", CharsetUtil.UTF_8));
     }
 
     /**
