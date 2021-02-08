@@ -21,4 +21,3 @@ public class ToIntegerDecoder2 extends ReplayingDecoder<Void> {
         out.add(in.readInt());
     }
 }
-

@@ -47,13 +47,11 @@ public class LogEventMonitor {
     }
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 1) {
-            throw new IllegalArgumentException(
-            "Usage: LogEventMonitor <port>");
-        }
+//        if (args.length != 1) {
+//            throw new IllegalArgumentException("Usage: LogEventMonitor <port>");
+//        }
         //构造一个新的 LogEventMonitor
-        LogEventMonitor monitor = new LogEventMonitor(
-            new InetSocketAddress(Integer.parseInt(args[0])));
+        LogEventMonitor monitor = new LogEventMonitor(new InetSocketAddress(8888));
         try {
             Channel channel = monitor.bind();
             System.out.println("LogEventMonitor running");

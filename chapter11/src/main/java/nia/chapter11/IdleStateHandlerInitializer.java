@@ -27,15 +27,13 @@ public class IdleStateHandlerInitializer extends ChannelInitializer<Channel>
     }
 
     //实现 userEventTriggered() 方法以发送心跳消息
-    public static final class HeartbeatHandler
-        extends ChannelInboundHandlerAdapter {
+    public static final class HeartbeatHandler extends ChannelInboundHandlerAdapter {
         //发送到远程节点的心跳消息
         private static final ByteBuf HEARTBEAT_SEQUENCE =
                 Unpooled.unreleasableBuffer(Unpooled.copiedBuffer(
                 "HEARTBEAT", CharsetUtil.ISO_8859_1));
         @Override
-        public void userEventTriggered(ChannelHandlerContext ctx,
-            Object evt) throws Exception {
+        public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
             //(2) 发送心跳消息，并在发送失败时关闭该连接
             if (evt instanceof IdleStateEvent) {
                 ctx.writeAndFlush(HEARTBEAT_SEQUENCE.duplicate())

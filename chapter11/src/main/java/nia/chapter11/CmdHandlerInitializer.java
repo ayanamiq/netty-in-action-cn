@@ -51,12 +51,10 @@ public class CmdHandlerInitializer extends ChannelInitializer<Channel> {
             ByteBuf frame = (ByteBuf) super.decode(ctx, buffer);
             if (frame == null) {
                 //如果输入中没有帧，则返回 null
-
                 return null;
             }
             //查找第一个空格字符的索引。前面是命令名称，接着是参数
-            int index = frame.indexOf(frame.readerIndex(),
-                    frame.writerIndex(), SPACE);
+            int index = frame.indexOf(frame.readerIndex(), frame.writerIndex(), SPACE);
             //使用包含有命令名称和参数的切片创建新的 Cmd 对象
             return new Cmd(frame.slice(frame.readerIndex(), index),
                     frame.slice(index + 1, frame.writerIndex()));

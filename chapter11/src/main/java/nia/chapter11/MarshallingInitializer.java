@@ -17,8 +17,7 @@ public class MarshallingInitializer extends ChannelInitializer<Channel> {
     private final MarshallerProvider marshallerProvider;
     private final UnmarshallerProvider unmarshallerProvider;
 
-    public MarshallingInitializer(
-            UnmarshallerProvider unmarshallerProvider,
+    public MarshallingInitializer(UnmarshallerProvider unmarshallerProvider,
             MarshallerProvider marshallerProvider) {
         this.marshallerProvider = marshallerProvider;
         this.unmarshallerProvider = unmarshallerProvider;

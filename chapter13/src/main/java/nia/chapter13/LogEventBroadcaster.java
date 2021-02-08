@@ -73,13 +73,18 @@ public class LogEventBroadcaster {
     }
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 2) {
-            throw new IllegalArgumentException();
-        }
+//        if (args.length != 2) {
+//            throw new IllegalArgumentException();
+//        }
         //创建并启动一个新的 LogEventBroadcaster 的实例
         LogEventBroadcaster broadcaster = new LogEventBroadcaster(
-                new InetSocketAddress("255.255.255.255",
-                    Integer.parseInt(args[0])), new File(args[1]));
+//                new InetSocketAddress("255.255.255.255", Integer.parseInt(args[0])),
+//                new File(args[1]));
+                //改用main方法启动
+                new InetSocketAddress("255.255.255.255",8888),
+                //需要提前在对应路径创建好文件
+                new File("D:\\test\\my.log")
+        );
         try {
             broadcaster.run();
         }

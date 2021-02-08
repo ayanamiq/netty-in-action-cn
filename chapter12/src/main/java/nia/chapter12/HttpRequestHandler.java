@@ -21,9 +21,7 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
     private static final File INDEX;
 
     static {
-        URL location = HttpRequestHandler.class
-             .getProtectionDomain()
-             .getCodeSource().getLocation();
+        URL location = HttpRequestHandler.class.getProtectionDomain().getCodeSource().getLocation();
         try {
             String path = location.toURI() + "index.html";
             path = !path.contains("file:") ? path : path.substring(5);

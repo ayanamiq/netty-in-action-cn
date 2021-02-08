@@ -23,18 +23,18 @@ public class SecureChatServer extends ChatServer {
     }
 
     @Override
-    protected ChannelInitializer<Channel> createInitializer(
-        ChannelGroup group) {
+    protected ChannelInitializer<Channel> createInitializer(ChannelGroup group) {
         //返回之前创建的 SecureChatServerInitializer 以启用加密
         return new SecureChatServerInitializer(group, context);
     }
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 1) {
-            System.err.println("Please give port as argument");
-            System.exit(1);
-        }
-        int port = Integer.parseInt(args[0]);
+//        if (args.length != 1) {
+//            System.err.println("Please give port as argument");
+//            System.exit(1);
+//        }
+//        int port = Integer.parseInt(args[0]);
+        int port = 9999;
         SelfSignedCertificate cert = new SelfSignedCertificate();
         SslContext context = SslContext.newServerContext(
                 cert.certificate(), cert.privateKey());

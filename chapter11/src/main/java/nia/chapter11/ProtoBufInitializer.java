@@ -31,11 +31,9 @@ public class ProtoBufInitializer extends ChannelInitializer<Channel> {
         pipeline.addLast(new ObjectHandler());
     }
 
-    public static final class ObjectHandler
-        extends SimpleChannelInboundHandler<Object> {
+    public static final class ObjectHandler extends SimpleChannelInboundHandler<Object> {
         @Override
-        public void channelRead0(ChannelHandlerContext ctx, Object msg)
-            throws Exception {
+        public void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
             // Do something with the object
         }
     }

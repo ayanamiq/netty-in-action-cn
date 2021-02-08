@@ -12,8 +12,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
 //扩展了MessageToByteEncoder
 public class ShortToByteEncoder extends MessageToByteEncoder<Short> {
     @Override
-    public void encode(ChannelHandlerContext ctx, Short msg, ByteBuf out)
-        throws Exception {
+    public void encode(ChannelHandlerContext ctx, Short msg, ByteBuf out) throws Exception {
         //将 Short 写入 ByteBuf 中
         out.writeShort(msg);
     }

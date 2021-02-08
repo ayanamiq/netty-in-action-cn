@@ -16,8 +16,7 @@ import java.util.List;
 public class SafeByteToMessageDecoder extends ByteToMessageDecoder {
     private static final int MAX_FRAME_SIZE = 1024;
     @Override
-    public void decode(ChannelHandlerContext ctx, ByteBuf in,
-        List<Object> out) throws Exception {
+    public void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
             int readable = in.readableBytes();
             //检查缓冲区中是否有超过 MAX_FRAME_SIZE 个字节
             if (readable > MAX_FRAME_SIZE) {

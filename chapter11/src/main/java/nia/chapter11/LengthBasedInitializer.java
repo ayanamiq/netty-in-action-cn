@@ -20,11 +20,9 @@ public class LengthBasedInitializer extends ChannelInitializer<Channel> {
         pipeline.addLast(new FrameHandler());
     }
 
-    public static final class FrameHandler
-        extends SimpleChannelInboundHandler<ByteBuf> {
+    public static final class FrameHandler extends SimpleChannelInboundHandler<ByteBuf> {
         @Override
-        public void channelRead0(ChannelHandlerContext ctx,
-             ByteBuf msg) throws Exception {
+        public void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
             // Do something with the frame
             //处理帧的数据
         }
